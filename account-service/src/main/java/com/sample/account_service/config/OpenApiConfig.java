@@ -8,10 +8,10 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@OpenAPIDefinition(
-        info = @Info(title = "Account Service API", version = "v1"),
-        security = @SecurityRequirement(name = "basicAuth")
-)
+//@OpenAPIDefinition(
+//        info = @Info(title = "Account Service API", version = "v1"),
+//        security = @SecurityRequirement(name = "basicAuth")
+//)
 @SecurityScheme(
         name = "basicAuth",
         type = SecuritySchemeType.HTTP,

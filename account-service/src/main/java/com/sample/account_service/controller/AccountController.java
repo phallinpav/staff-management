@@ -6,10 +6,7 @@ import com.sample.account_service.view.AccountView;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,12 +18,21 @@ public class AccountController {
     private final AccountService accountService;
 
     @GetMapping
-    public List<AccountView> list() {
-        return accountService.getList();
+    public List<AccountView> list(String name, String role) {
+        // TODO: search by name or role
+        //  when name and role = null, return all accounts
+        //  when name is not null, return accounts with the name search with LIKE
+        //  when role is not null, return accounts with the role search equals
+        //  when name and role are not null, return accounts with the name search with LIKE and role equals
+        if (name != null) {
+            return accountService.getList(name);
+        } else {
+            return accountService.getList();
+        }
     }
 
     @PostMapping
-    public AccountView create(@Valid CreateAccountForm form) {
+    public AccountView create(@Valid @RequestBody CreateAccountForm form) {
         return accountService.create(form);
     }
 }

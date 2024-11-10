@@ -23,7 +23,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/v3/api-docs/**",
                                 "/swagger-ui.html",
                                 "/swagger-ui/**",
-                                "/auth/**").permitAll()
+                                "/accounts2/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(httpBasic -> {})

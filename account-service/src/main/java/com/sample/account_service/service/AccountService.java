@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface AccountService {
     List<AccountView> getList();
+    List<AccountView> getList(String name);
     AccountView create(CreateAccountForm form);
 }
