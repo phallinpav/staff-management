@@ -15,7 +15,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // TODO: find user from database table accounts by username
-
+        //  and return user accordingly
         if (username.equals("admin")) {
             return new User(username, "password", new ArrayList<>());
         }

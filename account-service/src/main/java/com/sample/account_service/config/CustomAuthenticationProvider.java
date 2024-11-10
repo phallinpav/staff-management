@@ -25,7 +25,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
         UserDetails user = userDetailsService.loadUserByUsername(username);
 
-        // TODO: validate password
+        // TODO: validate password using PasswordUtils.isMatch
         if (user == null || !user.getPassword().equals(password)) {
             throw new BadCredentialsException("Invalid username or password");
         }

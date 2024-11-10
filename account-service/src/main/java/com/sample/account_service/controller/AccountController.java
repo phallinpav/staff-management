@@ -35,4 +35,15 @@ public class AccountController {
     public AccountView create(@Valid @RequestBody CreateAccountForm form) {
         return accountService.create(form);
     }
+
+    @PutMapping
+    public AccountView update() {
+        // TODO: implement update account
+        return null;
+    }
+
+    @DeleteMapping
+    public void delete() {
+        // TODO: implement delete account
+    }
 }
