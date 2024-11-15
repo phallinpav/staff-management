@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: account-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/staff_management?createDatabaseIfNotExist=true
+    username: root
+    password: Root123@
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  flyway:
+    url: jdbc:mysql://localhost:3306/staff_management
+    user: root
+    password: Root123@
+    enable: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: XXX
+            client-secret: XXX
+            scope: email,profile
+            redirect-uri: http://localhost:8081/login/oauth2/code/google
+          facebook:
+            client-id: XXX
+            client-secret: XXX
+            scope: public_profile
+            redirect-uri: http://localhost:8081/login/oauth2/code/facebook
+            client-name: Facebook
+        provider:
+          facebook:
+            authorization-uri: https://www.facebook.com/v14.0/dialog/oauth
+            token-uri: https://graph.facebook.com/v14.0/oauth/access_token
+            user-info-uri: https://graph.facebook.com/me?fields=id,name,email
+server:
+  port: 8081
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

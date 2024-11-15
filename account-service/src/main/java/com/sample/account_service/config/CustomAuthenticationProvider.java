@@ -1,5 +1,6 @@
 package com.sample.account_service.config;
 
+import com.sample.account_service.utils.PasswordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -25,8 +26,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
         UserDetails user = userDetailsService.loadUserByUsername(username);
 
-        // TODO: validate password using PasswordUtils.isMatch
-        if (user == null || !user.getPassword().equals(password)) {
+        if (user == null || !PasswordUtils.isMatch(password, user.getPassword())) {
             throw new BadCredentialsException("Invalid username or password");
         }
 

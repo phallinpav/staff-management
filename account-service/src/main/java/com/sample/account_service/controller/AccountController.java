@@ -18,7 +18,7 @@ public class AccountController {
     private final AccountService accountService;
 
     @GetMapping
-    public List<AccountView> list(String name, String role) {
+    public List<AccountView> list(@RequestParam(required = false) String name, @RequestParam(required = false) String role) {
         // TODO: search by name or role
         //  when name and role = null, return all accounts
         //  when name is not null, return accounts with the name search with LIKE
@@ -32,7 +32,7 @@ public class AccountController {
     }
 
     @PostMapping
-    public AccountView create(@Valid @RequestBody CreateAccountForm form) {
+    public AccountView create(@RequestBody @Valid CreateAccountForm form) {
         return accountService.create(form);
     }
 
