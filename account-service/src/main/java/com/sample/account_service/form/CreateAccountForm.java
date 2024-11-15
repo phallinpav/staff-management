@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateAccountForm {
     @NotBlank
-    @Size(min = 2, max=100)
+    @Size(min = 2, max = 100)
     private String name;
 
     @NotBlank

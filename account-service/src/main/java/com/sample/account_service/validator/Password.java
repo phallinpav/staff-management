@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = PasswordValidator.class)
 public @interface Password {
 
-    String message() default "Invalid password";
+    String message() default "must have uppercase, lowercase, number, and special character";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 
