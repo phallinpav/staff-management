@@ -129,4 +129,20 @@ public class AccountControllerTest {
                         .content(formJson))
                 .andExpect(status().isBadRequest());
     }
+
+    @Test
+    void testCreatePasswordEmpty() throws Exception {
+        CreateAccountForm form = new CreateAccountForm("test", null, "USER");
+        AccountView accountView = new AccountView("test", "USER");
+
+        when(accountService.create(any(CreateAccountForm.class))).thenReturn(accountView);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String formJson = objectMapper.writeValueAsString(form);
+
+        mockMvc.perform(post("/accounts")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(formJson))
+                .andExpect(status().isBadRequest());
+    }
 }
