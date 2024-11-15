@@ -24,7 +24,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
         UserDetails user = userDetailsService.loadUserByUsername(username);
 
-        if (user == null || !PasswordUtils.isMatch(password, user.getPassword())) {
+        if (!PasswordUtils.isMatch(password, user.getPassword())) {
             throw new BadCredentialsException("Invalid username or password");
         }
 
