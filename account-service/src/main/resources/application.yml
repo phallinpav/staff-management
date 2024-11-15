@@ -19,13 +19,13 @@ spring:
       client:
         registration:
           google:
-            client-id: XXX
-            client-secret: XXX
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
             scope: email,profile
             redirect-uri: http://localhost:8081/login/oauth2/code/google
           facebook:
-            client-id: XXX
-            client-secret: XXX
+            client-id: ${FACEBOOK_CLIENT_ID}
+            client-secret: ${FACEBOOK_CLIENT_SECRET}
             scope: public_profile
             redirect-uri: http://localhost:8081/login/oauth2/code/facebook
             client-name: Facebook
